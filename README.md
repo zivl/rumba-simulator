@@ -25,12 +25,9 @@ Production build output is a static site in `apps/web/dist/` that can be hosted 
 
 ### Deploy to Vercel
 
-`vercel.json` configures everything, so no dashboard settings are needed:
+The config lives in `apps/web/vercel.json`, so set the Vercel project's **Root Directory** to `apps/web` (Vercel suggests this automatically for the monorepo) and keep "Include files outside the root directory" enabled. No other dashboard settings are needed.
 
-1. In Vercel, **Add New Project** and import the GitHub repo. Keep the root directory as the repo root.
-2. Deploy. Vercel runs `corepack yarn install --immutable`, then `corepack yarn build` (calling Yarn through Corepack so Vercel's bundled Yarn 1 is bypassed), and serves `apps/web/dist`.
-
-Or from the CLI: `npx vercel` (preview) and `npx vercel --prod`.
+Vercel then runs `corepack yarn install --immutable` and `corepack yarn build` from the repo root and serves `apps/web/dist`. Yarn is called through Corepack because Vercel's bundled Yarn 1 cannot resolve `workspace:` dependencies.
 
 ## Controls
 
