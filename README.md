@@ -23,6 +23,15 @@ yarn dev        # http://localhost:5173
 
 Production build output is a static site in `apps/web/dist/` that can be hosted anywhere.
 
+### Deploy to Vercel
+
+`vercel.json` configures everything, so no dashboard settings are needed:
+
+1. In Vercel, **Add New Project** and import the GitHub repo. Keep the root directory as the repo root.
+2. Deploy. Vercel runs `corepack enable && yarn install --immutable`, then `yarn build`, and serves `apps/web/dist`.
+
+Or from the CLI: `npx vercel` (preview) and `npx vercel --prod`.
+
 ## Controls
 
 | Action | Desktop | Mobile |
