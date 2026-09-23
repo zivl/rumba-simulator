@@ -1,0 +1,19 @@
+{
+  "name": "roomba-simulator",
+  "private": true,
+  "packageManager": "yarn@4.17.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "yarn workspace @roomba/web dev",
+    "build": "yarn typecheck && yarn workspace @roomba/web build",
+    "preview": "yarn workspace @roomba/web preview",
+    "typecheck": "yarn workspaces foreach -A -pt run typecheck",
+    "test": "yarn workspaces foreach -A -pt run test"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
